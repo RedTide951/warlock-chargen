@@ -1,10 +1,10 @@
 import React from "react";
 import DenseTable from "./DenseTable";
 
-const layout = () => {
+const layout = ({ characterData }) => {
   return (
     <div>
-      <DenseTable />
+      <DenseTable characterData={characterData} />
     </div>
   );
 };

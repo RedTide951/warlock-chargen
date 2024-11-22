@@ -1,0 +1,4 @@
+Char data prop olarak skillere akıyor ve gösteriyor
+
+diğer datalar yapılacak. Gösterimi sağlanacak
+

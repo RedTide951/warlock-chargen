@@ -7,32 +7,20 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-function createData(skillName, value) {
-  return { skillName, value };
-}
+export default function DenseTable({ characterData }) {
+  const skills = characterData?.skills;
 
-const rows = [
-  createData("Athletics", 15),
-  createData("Acrobatics", 14),
-  createData("Sleight of Hand", 13),
-  createData("Stealth", 12),
-  createData("Arcana", 11),
-  createData("History", 10),
-  createData("Investigation", 9),
-  createData("Nature", 8),
-  createData("Religion", 7),
-  createData("Animal Handling", 6),
-  createData("Insight", 5),
-  createData("Medicine", 4),
-  createData("Perception", 3),
-  createData("Survival", 2),
-  createData("Deception", 1),
-  createData("Intimidation", 0),
-  createData("Performance", -1),
-  createData("Persuasion", -2),
-];
+  const rows = skills
+    ? Object.keys(skills).map((skillName) =>
+        createData(skillName, skills[skillName])
+      )
+    : [];
 
-export default function DenseTable() {
+  // Helper function to create data rows
+  function createData(skillName, value) {
+    return { skillName, value };
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 250 }} size="small" aria-label="a dense table">
