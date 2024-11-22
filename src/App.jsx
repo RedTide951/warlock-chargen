@@ -11,17 +11,16 @@ function App() {
   const handleRunScript = () => {
     const data = charGenScript();
     setCharacterData(data);
-    console.log(data);
   };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Button variant="outlined" onClick={handleRunScript}>
-          Run Script
-        </Button>
+      <Button variant="outlined" onClick={handleRunScript}>
+        Run Script
+      </Button>
+      <div>
         <Layout characterData={characterData} />
-      </header>
+      </div>
     </div>
   );
 }
