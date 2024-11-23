@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import charGenScript from "../data/script.jsx";
+import charGenScript from "./script.jsx";
 
 export default function ButtonAppBar({ setCharacterData }) {
   const handleRunScript = () => {
