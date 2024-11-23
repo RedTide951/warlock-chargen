@@ -16,12 +16,17 @@ export default function DenseTable({ characterData }) {
       )
     : [];
 
+  // Split rows into two parts
+  const middleIndex = Math.ceil(rows.length / 2);
+  const firstHalf = rows.slice(0, middleIndex);
+  const secondHalf = rows.slice(middleIndex);
+
   // Helper function to create data rows
   function createData(skillName, value) {
     return { skillName, value };
   }
 
-  return (
+  const renderTable = (data) => (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 250 }} size="small" aria-label="a dense table">
         <TableHead>
@@ -31,7 +36,7 @@ export default function DenseTable({ characterData }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {data.map((row) => (
             <TableRow
               key={row.skillName}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -45,5 +50,14 @@ export default function DenseTable({ characterData }) {
         </TableBody>
       </Table>
     </TableContainer>
+  );
+
+  return (
+    <div
+      style={{ display: "flex", gap: "20px", justifyContent: "space-between" }}
+    >
+      {renderTable(firstHalf)}
+      {renderTable(secondHalf)}
+    </div>
   );
 }

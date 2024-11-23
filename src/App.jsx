@@ -1,27 +1,27 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Button from "@mui/material/Button";
 import Layout from "./components/Layout";
-import charGenScript from "./data/script";
+import ButtonAppBar from "./components/ButtonAppBar.jsx";
 import { useState } from "react";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 function App() {
   const [characterData, setCharacterData] = useState(null);
 
-  const handleRunScript = () => {
-    const data = charGenScript();
-    setCharacterData(data);
-  };
-
   return (
-    <div className="App">
-      <Button variant="outlined" onClick={handleRunScript}>
-        Run Script
-      </Button>
-      <div>
-        <Layout characterData={characterData} />
+    <ThemeProvider theme={darkTheme}>
+      <div className="App">
+        <ButtonAppBar setCharacterData={setCharacterData} />
+        <div>
+          <Layout characterData={characterData} />
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 
